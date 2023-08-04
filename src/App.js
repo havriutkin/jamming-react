@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
-
 import SearchContainer from './containers/SearchContainer.js';
 import SongsContainer from './containers/SongsConatiner';
 import PlaylistContainer from './containers/PlaylistContainer';
