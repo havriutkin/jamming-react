@@ -10,10 +10,10 @@ function Search({handleSubmit}){
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <label for="title">Title</label>
-            <input id="title" name="title" type="text" value={title} onChange={handleChange}></input>
+            <label for="title" className={styles.element}>Title</label>
+            <input id="title" name="title" type="text" value={title} onChange={handleChange} className={styles.element}></input>
 
-            <button type="submit">Search</button>
+            <button type="submit" className={styles.element}>Search</button>
         </form>
     )
 }
