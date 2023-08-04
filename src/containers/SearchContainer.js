@@ -2,8 +2,12 @@ import Search from "../presentationals/Search";
 
 function SearchContainer(){
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
     return(
-        <Search/>
+        <Search handleSubmit={handleSubmit}/>
     );
 }
 
