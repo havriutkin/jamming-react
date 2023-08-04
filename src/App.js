@@ -12,10 +12,15 @@ const apiSecret = process.env.REACT_APP_API_SECRET;
 function App() {
   const [search, setSearch] = useState('');
 
+  const handleSubmit = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <div className={styles.app}>
-      <SearchContainer className={styles.search}/>
-      <SongsContainer className={styles.songs} search={search}/>
+      <SearchContainer className={styles.search} onSubmit={handleSubmit}/>
+      <SongsContainer className={styles.songs} search={search}
+      apiKey={apiKey} apiSecret={apiSecret}/>
       <PlaylistContainer className={styles.playlist}/>
     </div>
   );
