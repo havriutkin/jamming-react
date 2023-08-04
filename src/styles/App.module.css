@@ -1,0 +1,19 @@
+.app {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: minmax(100px, auto);
+    gap: 10px;
+}
+
+.search {
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+.songs {
+    grid-column: 1/2;
+}
+
+.playlist {
+    grid-column: 3/4;
+}
