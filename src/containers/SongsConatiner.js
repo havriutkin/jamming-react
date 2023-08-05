@@ -8,6 +8,7 @@ const baseUrl = 'https://api.spotify.com/v1/search?q=';
 function SongsConatiner({ search, token }){
     const [songs, setSongs] = useState('');
 
+    // Make get request to find songs
     useEffect(() => {
         if (search != ''){
             const endpoint = baseUrl + search + '&type=track';
