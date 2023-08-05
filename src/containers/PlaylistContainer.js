@@ -1,8 +1,8 @@
 import Playlist from "../presentationals/Playlist";
 
-function PlaylistContainer(){
+function PlaylistContainer({list}){
     return(
-        <Playlist/>
+        <Playlist list={list}/>
     );
 }
 

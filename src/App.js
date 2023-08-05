@@ -19,6 +19,7 @@ TODO: Make authorization request in App to obtain access token
 function App() {
     const [search, setSearch] = useState('');
     const [token, setToken] = useState('');
+    const [playlist, setPlaylist] = useState([]);
 
     // Obtain access token
     useEffect(() => {
@@ -44,11 +45,15 @@ function App() {
         setSearch(newSearch);
     };
 
+    const handleAdd = (newSong) => {
+        setPlaylist(prev => [...prev, newSong]);
+    }
+
     return (
         <div className={styles.main}>
             <SearchContainer onSubmit={handleSubmit}/>
-            <SongsContainer search={search} token={token}/>
-            <PlaylistContainer/>
+            <SongsContainer search={search} token={token} onAdd={handleAdd}/>
+            <PlaylistContainer list={playlist}/>
         </div>
     );
 }

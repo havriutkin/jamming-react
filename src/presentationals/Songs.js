@@ -1,6 +1,11 @@
 import styles from '../styles/Songs.module.css';
 
-function Songs({songs}){
+function Songs({songs, onClick}){
+
+    const handleClick = (event) => {
+        onClick(songs[event.target.id]);
+    }
+
     let toRender = ''
     if (songs){
         toRender = songs.map(song => {
@@ -10,7 +15,7 @@ function Songs({songs}){
                 <h3>{song.name}</h3>
                 <h4>{song.artists[0].name}</h4>
               </div>
-              <button>&#43;</button>
+              <button id={songs.indexOf(song)} onClick={handleClick}>&#43;</button>
             </li>
           )
         });

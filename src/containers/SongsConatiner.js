@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const baseUrl = 'https://api.spotify.com/v1/search?q=';
 
 
-function SongsConatiner({ search, token }){
+function SongsConatiner({ search, token, onAdd }){
     const [songs, setSongs] = useState('');
 
     // Make get request to find songs
@@ -26,7 +26,7 @@ function SongsConatiner({ search, token }){
     }, [search]);
 
     return(
-        <Songs songs={songs}/>
+        <Songs songs={songs} onClick={onAdd}/>
     )
 }
 
