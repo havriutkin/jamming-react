@@ -1,11 +1,16 @@
 import styles from '../styles/Search.module.css';
 import { useState } from 'react';
 
-function Search({handleSubmit}){
+function Search({updateSearch}){
     const [title, setTitle] = useState('');
 
     const handleChange = (event) => {
         setTitle(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updateSearch(title);
     };
 
     return (

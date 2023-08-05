@@ -40,15 +40,15 @@ function App() {
     }, [])
 
 
-    const handleSubmit = (event) => {
-        setSearch(event.target.value);
+    const handleSubmit = (newSearch) => {
+        setSearch(newSearch);
     };
 
     return (
         <div className={styles.app}>
             <SearchContainer className={styles.search} onSubmit={handleSubmit}/>
             <SongsContainer className={styles.songs} search={search}
-            apiKey={apiKey} apiSecret={apiSecret}/>
+            token={token}/>
             <PlaylistContainer className={styles.playlist}/>
         </div>
     );
