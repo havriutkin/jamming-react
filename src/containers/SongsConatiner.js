@@ -4,11 +4,6 @@ import { useState, useEffect } from 'react';
 
 const baseUrl = 'https://api.spotify.com/v1/search?q=';
 
-function fetchData(search, token){
-    
-
-
-} 
 
 function SongsConatiner({ search, token }){
     const [songs, setSongs] = useState('');
