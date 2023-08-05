@@ -45,11 +45,10 @@ function App() {
     };
 
     return (
-        <div className={styles.app}>
-            <SearchContainer className={styles.search} onSubmit={handleSubmit}/>
-            <SongsContainer className={styles.songs} search={search}
-            token={token}/>
-            <PlaylistContainer className={styles.playlist}/>
+        <div className={styles.main}>
+            <SearchContainer onSubmit={handleSubmit}/>
+            <SongsContainer search={search} token={token}/>
+            <PlaylistContainer/>
         </div>
     );
 }

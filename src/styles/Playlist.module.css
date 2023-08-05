@@ -1,0 +1,4 @@
+.playlist {
+    grid-column: 3 / span 1;
+    text-align: center;
+}

@@ -18,6 +18,7 @@ function Songs({songs}){
 
     return (
         <div className={styles.songs}>
+          <h2>Serach results</h2>
           <ul>
             {toRender}
           </ul>

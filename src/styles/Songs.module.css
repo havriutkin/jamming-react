@@ -1,11 +1,20 @@
 .songs {
-    width: 50%;
+    grid-column: 2 / span 1;
+    text-align: center;
+}
+
+/*TODO: Fix ul style. Looks like it has margin-left*/
+ul {
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
 }
 
 li {
+    margin: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border: 1px solid black;
 }
 
@@ -14,5 +23,4 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
