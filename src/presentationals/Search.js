@@ -14,12 +14,13 @@ function Search({updateSearch}){
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
-            <label for="title" className={styles.element}>Title</label>
-            <input id="title" name="title" type="text" value={title} onChange={handleChange} className={styles.element}></input>
-
-            <button type="submit" className={styles.element}>Search</button>
-        </form>
+        <div className={styles.search}>
+            <h1>Jammming</h1>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <input id="title" name="title" type="text" value={title} onChange={handleChange} className={styles.element}></input>
+                <button type="submit" className={styles.element}>Search</button>
+            </form>
+        </div>
     )
 }
 
