@@ -6,8 +6,10 @@ function Songs({songs}){
         toRender = songs.map(song => {
           return (
             <li>
-              <h2>{song.name}</h2>
-              <h3>{song.artists[0].name}</h3>
+              <div className={styles.description}>
+                <h3>{song.name}</h3>
+                <h4>{song.artists[0].name}</h4>
+              </div>
               <button>&#43;</button>
             </li>
           )
@@ -15,7 +17,7 @@ function Songs({songs}){
     }
 
     return (
-        <div>
+        <div className={styles.songs}>
           <ul>
             {toRender}
           </ul>
