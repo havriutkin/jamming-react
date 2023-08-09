@@ -8,10 +8,12 @@ import styles from './App.module.css'
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiSecret = process.env.REACT_APP_API_SECRET;
+const baseUrl = 'https://api.spotify.com/v1/search?q=';
 
 
 function App() {
     const [token, setToken] = useState('');
+    const [songs, setSongs] = useState([]);
 
     // Obtain access token
     useEffect(() => {
@@ -32,11 +34,31 @@ function App() {
             })
     }, [])
 
+    // Make get search request to Spotify API
+    const handleSearch = (newSearch) => {
+        const endpoint = baseUrl + newSearch + '&type=track';
+        const parameters = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+
+        fetch(endpoint, parameters)
+            .then(response => response.json())
+                .then(data => setSongs(data.tracks.items))
+            .catch(error => {
+                console.log(error);
+                alert('Error occured!')
+                setSongs([]);
+            });
+    }
+
 
     return (
         <div className={styles.app}>
-            <SearchBar/>
-            <SearchResults/>
+            <SearchBar onSearch={handleSearch}/>
+            <SearchResults songs={songs}/>
             <Playlist/>
         </div>
     );
