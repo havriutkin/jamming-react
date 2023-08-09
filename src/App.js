@@ -1,25 +1,17 @@
 import { useState, useEffect } from 'react';
 
-import SearchContainer from './containers/SearchContainer.js';
-import SongsContainer from './containers/SongsConatiner';
-import PlaylistContainer from './containers/PlaylistContainer';
+import SearchBar from './components/SearchBar/SearchBar'
+import SearchResults from './components/SearchResults/SearchResults'
+import Playlist from './components/Playlist/Playlist'
 
-import styles from './styles/App.module.css';
+import styles from './App.module.css'
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiSecret = process.env.REACT_APP_API_SECRET;
 
 
-
-/*
-TODO: Make authorization request in App to obtain access token
-*/
-
-
 function App() {
-    const [search, setSearch] = useState('');
     const [token, setToken] = useState('');
-    const [playlist, setPlaylist] = useState([]);
 
     // Obtain access token
     useEffect(() => {
@@ -41,19 +33,11 @@ function App() {
     }, [])
 
 
-    const handleSubmit = (newSearch) => {
-        setSearch(newSearch);
-    };
-
-    const handleAdd = (newSong) => {
-        setPlaylist(prev => [...prev, newSong]);
-    }
-
     return (
-        <div className={styles.main}>
-            <SearchContainer onSubmit={handleSubmit}/>
-            <SongsContainer search={search} token={token} onAdd={handleAdd}/>
-            <PlaylistContainer list={playlist}/>
+        <div className={styles.app}>
+            <SearchBar/>
+            <SearchResults/>
+            <Playlist/>
         </div>
     );
 }

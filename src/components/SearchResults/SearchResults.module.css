@@ -1,0 +1,4 @@
+.searchResults{
+    grid-column: 1 / span 1;
+    text-align: center;
+}
