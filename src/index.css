@@ -13,3 +13,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button{
+  padding: 10px;
+  background-color: #00ADB5;
+  border: 1px solid black;
+  color: black;
+  font-size: medium;
+}
+
+button:hover{
+  opacity: 70%;
+}
+
+button:active{
+  color: #EEEEEE;
+  background-color: #393E46;
+}

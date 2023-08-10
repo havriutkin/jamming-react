@@ -1,5 +1,12 @@
 .track {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info{
+    width: 70%;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -11,5 +18,10 @@ h4 {
 
 h5 {
     margin: 10px 0;
+}
+
+button.action {
+    height: 2rem;
+    width: 2rem;
 }
 
