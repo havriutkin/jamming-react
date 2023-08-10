@@ -12,12 +12,12 @@
     justify-content: center;
 }
 
-h4 {
+h4.title {
     margin-bottom: 10px;
     text-align: left;
 }
 
-h5 {
+h5.artist {
     margin: 10px 0;
 }
 

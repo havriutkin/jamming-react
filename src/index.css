@@ -31,3 +31,16 @@ button:active{
   color: #EEEEEE;
   background-color: #393E46;
 }
+
+ul {
+  width: 70%;
+  padding: 0;
+  text-align: center;
+}
+
+li{
+  width: 100%;
+  list-style: none;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+}

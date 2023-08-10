@@ -8,8 +8,8 @@ function Track({song, action, id, symbol}){
     return(
         <div className={styles.track}>
             <div className={styles.info}>
-                <h4>{song.name}</h4>
-                <h5>{song.artists[0].name}</h5>
+                <h4 className={styles.title}>{song.name}</h4>
+                <h5 className={styles.artist}>{song.artists[0].name}</h5>
             </div>
             <button onClick={handleClick} className={styles.action}>{symbol}</button>
         </div>

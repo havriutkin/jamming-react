@@ -55,7 +55,7 @@ function App() {
             });
     }
 
-    // Handle pressing 'add' button, takes id of a song
+    // Handle pressing 'add' button, takes index of a song in songs
     const handleAdd = (index) => {
         // Check if song is already in a playlist
         const containsElement = playlist.some(element => element.id === songs[index].id)
@@ -67,12 +67,18 @@ function App() {
         }
     }
 
+    // Handle pressing 'minus' button, takes index of a song in playlist
+    const handleDelete = (index) => {
+        setPlaylist(prev => {
+            return prev.filter(element => element.id !== playlist[index].id);
+        });
+    }
 
     return (
         <div className={styles.app}>
             <SearchBar onSearch={handleSearch}/>
             <SearchResults songs={songs} action={handleAdd}/>
-            <Playlist playlist={playlist}/>
+            <Playlist playlist={playlist} action={handleDelete}/>
         </div>
     );
 }
