@@ -1,8 +1,8 @@
 import styles from './Track.module.css';
 
-function Track({song, onClick, id}){
+function Track({song, action, id}){
     const handleClick = (event) => {
-        onClick(id);
+        action(id);
     }
 
     return(

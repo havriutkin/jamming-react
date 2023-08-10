@@ -2,12 +2,12 @@ import Track from '../Track/Track';
 
 import styles from './SearchResults.module.css'
 
-function SearchResults({songs}){
+function SearchResults({songs, action}){
     let toRender = '';
 
     if (songs){
         toRender = songs.map(song => {
-            return <li><Track song={song}/></li>
+            return <li><Track song={song} action={action} id={songs.indexOf(song)}/></li>
         });
     }
 
