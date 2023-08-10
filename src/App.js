@@ -14,6 +14,7 @@ const baseUrl = 'https://api.spotify.com/v1/search?q=';
 function App() {
     const [token, setToken] = useState('');
     const [songs, setSongs] = useState([]);
+    const [playlist, setPlaylist] = useState([]);
 
     // Obtain access token
     useEffect(() => {
@@ -54,12 +55,24 @@ function App() {
             });
     }
 
+    // Handle pressing 'add' button, takes id of a song
+    const handleAdd = (index) => {
+        // Check if song is already in a playlist
+        const containsElement = playlist.some(element => element.id === songs[index].id)
+
+        if (!containsElement){
+            setPlaylist(prev => {
+                return [...prev, songs[index]];
+            });
+        }
+    }
+
 
     return (
         <div className={styles.app}>
             <SearchBar onSearch={handleSearch}/>
-            <SearchResults songs={songs}/>
-            <Playlist/>
+            <SearchResults songs={songs} action={handleAdd}/>
+            <Playlist playlist={playlist}/>
         </div>
     );
 }
