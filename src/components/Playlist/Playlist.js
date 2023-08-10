@@ -7,7 +7,7 @@ function Playlist({playlist, action}){
 
     if (playlist){
         toRender = playlist.map(song => {
-            return <li><Track song={song} action={action} id={playlist.indexOf(song)}/></li>
+            return <li><Track song={song} action={action} id={playlist.indexOf(song)} symbol={<>&minus;</>}/></li>
         });
     }
 

@@ -7,7 +7,7 @@ function SearchResults({songs, action}){
 
     if (songs){
         toRender = songs.map(song => {
-            return <li><Track song={song} action={action} id={songs.indexOf(song)}/></li>
+            return <li><Track song={song} action={action} id={songs.indexOf(song)} symbol={<>&#43;</>}/></li>
         });
     }
 
