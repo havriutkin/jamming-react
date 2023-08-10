@@ -1,3 +1,5 @@
+import Track from '../Track/Track';
+
 import styles from './SearchResults.module.css'
 
 function SearchResults({songs}){
@@ -5,9 +7,8 @@ function SearchResults({songs}){
 
     if (songs){
         toRender = songs.map(song => {
-            return <li>{song.name}</li>
-        })
-        console.log(toRender);
+            return <li><Track song={song}/></li>
+        });
     }
 
     return(

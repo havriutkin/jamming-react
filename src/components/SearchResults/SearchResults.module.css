@@ -1,4 +1,18 @@
 .searchResults{
     grid-column: 1 / span 1;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
 }
