@@ -27,7 +27,6 @@ function App() {
         const code = urlSearchParams.get('code');
     
         if (code) {
-            console.log(code);
             // Get access token
             const body = new URLSearchParams({
                 grant_type: 'authorization_code',
@@ -57,7 +56,7 @@ function App() {
 
     // Obtain user ID once token is obtained
     useEffect(() => {
-        if (token != ''){
+        if (!userID && token){
             const parameters = {
                 method: 'GET',
                 headers: {
@@ -87,7 +86,10 @@ function App() {
 
         fetch(endpoint, parameters)
             .then(response => response.json())
-                .then(data => setSongs(data.tracks.items))
+                .then(data => {
+                    setSongs(data.tracks.items);
+                    console.log(data);
+                })
             .catch(error => {
                 console.log(error);
                 alert('Error occured!')
@@ -98,6 +100,47 @@ function App() {
     // Make post request to Spotify API to create playlist
     const handlePush = (newPlaylist, name) => {
         // Create playlist
+        const endpoint = `https://api.spotify.com/v1/users/${userID}/playlists`;
+        
+        const body = new URLSearchParams({
+            name: name,
+            description: '',
+            public: false,
+        });
+
+        const parameters = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Bearer ${token}`
+            },
+            body: body,
+        };
+
+        fetch(endpoint, parameters)
+            .then(response => {
+                return response.json();
+            }).then(data => {
+                // Make PUSH request to add songs to playlist 
+                const addEndpoint = `https://api.spotify.com/v1/playlists/${data.id}/tracks`
+
+                const addBody = new URLSearchParams({
+                    uris: newPlaylist.map(song => song.uri),
+                    position: 0,
+                });
+
+                const addParameters = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: addBody,
+                };
+
+                fetch(addEndpoint, addParameters)
+                    .then(response => console.log(response));
+            })
     }
 
     // Handle pressing 'add' button, takes index of a song in songs
@@ -120,7 +163,7 @@ function App() {
     }
 
     let render = <a href={authUrl}>Login with Spotify</a>;
-
+    console.log(userID);
     if (userID){
         render = (
             <div className={styles.app}>
